@@ -44,3 +44,59 @@ body {
     flex-direction: row; 
     width: auto;  
 }
+
+.lead {
+    padding-left: 25px;
+    /* padding-top: 25px; */
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.city-weather {
+    font-size: 1.5rem;
+    background-color: #C6eeffe6;
+    font-weight: bold;
+    padding-left: 40px;
+    line-height: 32px;
+    padding-bottom: 60px;
+    margin-bottom: 50px;
+}
+.card {
+    border: none;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.cardbody {
+    border: none;
+    display: inline-block;
+    flex-direction: row;
+}
+
+.badge-success {
+    background-color: darkgreen;
+}
+
+.badge-mild {
+    background-color: yellow;
+}
+
+.badge-warning {
+    background-color: orange;
+}
+
+.badge-veryhigh {
+    background-color: red;
+}
+
+.badge-danger {
+    background-color: darkmagenta;
+}
+
+.saveBtn {   
+    background-color: #06AED5;
+    color: white;
+    height: 40px;
+  }

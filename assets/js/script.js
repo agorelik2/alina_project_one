@@ -34,7 +34,7 @@ $(document).ready(function () {
     if (searchCountry === "USA") {
         console.log ("You have selected: " + searchCountry)
     }else{
-        $ ("#select-state").hide() 
+        $ (".select-state").hide() 
         console.log ("not USA. You have selected: " + searchCountry)
     }
 

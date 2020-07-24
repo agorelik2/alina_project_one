@@ -101,3 +101,6 @@ body {
     color: white;
     height: 40px;
   }
+  #searchBtn {
+    margin: 5%
+  }

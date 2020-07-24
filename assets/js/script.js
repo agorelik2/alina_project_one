@@ -28,15 +28,16 @@ $(document).ready(function () {
     $("#country").change(function(){
         searchCountry = $(this).children("option:selected").val(); 
         console.log ("You have selected the country - " + searchCountry);
+        if (searchCountry !== "USA") {
+            $ (".select-state").hide() 
+            console.log ("not USA. You have selected: " + searchCountry)
+        }else{
+            $ (".select-state").show() 
+        }
         
     });
     
-    if (searchCountry === "USA") {
-        console.log ("You have selected: " + searchCountry)
-    }else{
-        $ (".select-state").hide() 
-        console.log ("not USA. You have selected: " + searchCountry)
-    }
+   
 
     // if (searchCountry !== 'USA') {
     //     console.log ("Country in NOT USA, it is - " + searchCountry);

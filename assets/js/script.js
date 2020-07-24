@@ -2,13 +2,60 @@ $(document).ready(function () {
     
     var APIKey = "b842e13062ebcdc52faeb1014bc3a489";
     let searchHistoryArr = [];
-    renderSearchList();
+    // var stateNames = new Array();
+    // stateNames['Usa'] = new Array('Alabama','Alaska','Arizona','Michigan','Colorado','Wisconsin'); 
+    const stateNames = [
+        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+        'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas',
+        'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 
+        'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
+        'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 
+        'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+      ];
+
+      const countryNames = [
+          'Canada', 'France', 'Germany','other'
+      ];
+
+    // renderSearchList();
+   
+    setCountry();
+    setStates();
+    let searchCountry = "USA";
+
+    //grab search country from the select country dropdown box
+    $("#country").change(function(){
+        searchCountry = $(this).children("option:selected").val(); 
+        console.log ("You have selected the country - " + searchCountry);
+        
+    });
+    
+    if (searchCountry === "USA") {
+        console.log ("You have selected: " + searchCountry)
+    }else{
+        $ ("#select-state").hide() 
+        console.log ("not USA. You have selected: " + searchCountry)
+    }
+
+    // if (searchCountry !== 'USA') {
+    //     console.log ("Country in NOT USA, it is - " + searchCountry);
+    //     $ ("#select-state").hide()
+    // } 
+
+    
 
     //Main Routine
     $("#searchBtn").click(function (event) {
         event.preventDefault();
-        //grab search term from input search field
+
+        //grab search country from the select country dropdown box
+       
+        //grab search state from the select state dropdown box
+        
+        //grab search city from input field
         let searchCity = $("#cityInput").val().trim();
+
         let cityLat = "";
         let cityLon = "";
         currentWeather(searchCity);
@@ -26,6 +73,31 @@ $(document).ready(function () {
       fiveDayForecast(searchCity);
     });
 
+    //Set Country
+    function setCountry(){
+        let selectCountry = document.getElementById("country");
+        for (var i = 0; i < countryNames.length; i++) {
+            var option = document.createElement("option");
+            option.text = countryNames[i];
+            option.value = countryNames[i];
+            selectCountry.add(option);
+        }   
+    }
+
+    //Set States
+    function setStates(){
+        
+	    selectState = document.getElementById("state");
+	    
+	    for (var i = 0; i < stateNames.length; i++) {
+            var option = document.createElement("option");
+            option.text = stateNames[i];
+            option.value = stateNames[i];
+            selectState.add(option);
+        }   
+    }
+
+    
     //Render all of the past city searches from the search history
     function renderSearchList() {
       let searchList = JSON.parse(localStorage.getItem("cities"));
